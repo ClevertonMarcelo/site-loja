@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Produtos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <input type="file" id="uploadLogo" accept="image/*" onchange="atualizarLogo(event)">
+    <img id="logo" src="logo.png" alt="Logo da empresa">
+    <h1>Catálogo de Produtos</h1>
+  </header>
+
+  <section id="banner">
+    <input type="file" id="uploadBanner" accept="image/*" onchange="atualizarBanner(event)">
+    <img id="bannerImagem" src="banner.jpg" alt="Banner promocional">
+  </section>
+
+  <section id="regras">
+    <p><strong>Promoção:</strong> 1 camisa por R$70, 2 por R$120, 3 por R$150.</p>
+  </section>
+
+  <section id="filtros">
+    <select id="filtroMarca">
+      <option value="">Todas as marcas</option>
+    </select>
+    <select id="filtroCor">
+      <option value="">Todas as cores</option>
+    </select>
+    <select id="filtroTamanho">
+      <option value="">Todos os tamanhos</option>
+      <option value="P">P</option>
+      <option value="M">M</option>
+      <option value="G">G</option>
+      <option value="GG">GG</option>
+      <option value="G1">G1</option>
+      <option value="G2">G2</option>
+      <option value="G3">G3</option>
+    </select>
+    <button onclick="aplicarFiltros()">Filtrar</button>
+  </section>
+
+  <section id="produtos"></section>
+
+  <template id="produto-template">
+    <div class="produto">
+      <img class="foto" alt="Foto do produto">
+      <h2 class="nome"></h2>
+      <p class="marca"></p>
+      <p class="cor"></p>
+      <select class="tamanho">
+        <option value="">Escolha o tamanho</option>
+        <option value="P">P</option>
+        <option value="M">M</option>
+        <option value="G">G</option>
+        <option value="GG">GG</option>
+        <option value="G1">G1</option>
+        <option value="G2">G2</option>
+        <option value="G3">G3</option>
+      </select>
+      <button class="whatsapp">Fazer Pedido</button>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
