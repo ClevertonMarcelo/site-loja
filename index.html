@@ -2,38 +2,45 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catálogo LYNCO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LYNCO | Loja Oficial</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <img id="logo" src="logo.png" alt="Logo da empresa" />
-    <h1>Catálogo LYNCO</h1>
+    <div class="container header-flex">
+      <img src="logo.png" alt="LYNCO" class="logo" />
+      <nav>
+        <a href="#produtos">Catálogo</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
   </header>
 
-  <section id="banner">
-    <input type="file" id="uploadBanner" accept="image/*" onchange="atualizarBanner(event)">
-    <img id="bannerImagem" src="banner.jpg" alt="Banner" />
+  <section class="banner">
+    <img src="banner.jpg" alt="Banner promocional" />
   </section>
 
-  <section id="tabela-preco">
-    <h2>Tabela de Preços</h2>
-    <ul>
-      <li>1 camisa = R$70</li>
-      <li>2 camisas = R$120</li>
-      <li>3 camisas = R$150</li>
-      <li>cada adicional = R$50</li>
-    </ul>
+  <section class="destaque">
+    <div class="container">
+      <h1>Coleção Nova</h1>
+      <p>Selecione os produtos desejados e finalize o pedido diretamente pelo WhatsApp.</p>
+    </div>
   </section>
 
-  <section id="produtos"></section>
+  <main class="produtos" id="produtos"></main>
+
+  <footer id="contato">
+    <div class="container">
+      <p>LYNCO Confecções - Todos os direitos reservados</p>
+      <p>WhatsApp: (46) 99108-1743</p>
+    </div>
+  </footer>
 
   <template id="produto-template">
-    <div class="produto">
-      <img class="foto" src="" alt="Produto" />
+    <div class="card">
+      <img class="foto" alt="Imagem do produto" />
       <h2 class="nome"></h2>
-      <p class="marca"></p>
       <p class="cor"></p>
       <div class="quantidades">
         <label>P: <input type="number" min="0" value="0" class="qtde qtde-P" /></label>
@@ -41,7 +48,7 @@
         <label>G: <input type="number" min="0" value="0" class="qtde qtde-G" /></label>
         <label>GG: <input type="number" min="0" value="0" class="qtde qtde-GG" /></label>
       </div>
-      <button class="whatsapp">Fazer Pedido</button>
+      <button class="whatsapp">Comprar via WhatsApp</button>
     </div>
   </template>
 
