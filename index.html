@@ -2,51 +2,30 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LYNCO | Loja Oficial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CM Wear</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <div class="container header-flex">
-      <img src="logo.png" alt="LYNCO" class="logo" />
-      <nav>
-        <a href="#produtos">Catálogo</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
+    <img src="logo.png" alt="Logo CM Wear" class="logo">
   </header>
 
   <section class="banner">
-    <img src="banner.jpg" alt="Banner promocional" />
+    <img src="banner.jpg" alt="Banner CM Wear">
   </section>
 
-  <section class="destaque">
-    <div class="container">
-      <h1>Coleção Nova</h1>
-      <p>Selecione os produtos desejados e finalize o pedido diretamente pelo WhatsApp.</p>
-    </div>
-  </section>
-
-  <main class="produtos" id="produtos"></main>
-
-  <footer id="contato">
-    <div class="container">
-      <p>LYNCO Confecções - Todos os direitos reservados</p>
-      <p>WhatsApp: (46) 99108-1743</p>
-    </div>
-  </footer>
+  <main id="produtos" class="produtos"></main>
 
   <template id="produto-template">
-    <div class="card">
-      <img class="foto" alt="Imagem do produto" />
+    <div class="produto">
+      <img class="foto" src="" alt="Foto do produto">
       <h2 class="nome"></h2>
-      <p class="cor"></p>
-      <div class="quantidades">
-        <label>P: <input type="number" min="0" value="0" class="qtde qtde-P" /></label>
-        <label>M: <input type="number" min="0" value="0" class="qtde qtde-M" /></label>
-        <label>G: <input type="number" min="0" value="0" class="qtde qtde-G" /></label>
-        <label>GG: <input type="number" min="0" value="0" class="qtde qtde-GG" /></label>
+      <div class="tamanhos">
+        <div><label>P</label><input type="number" class="qtde qtde-P" min="0" value="0"/></div>
+        <div><label>M</label><input type="number" class="qtde qtde-M" min="0" value="0"/></div>
+        <div><label>G</label><input type="number" class="qtde qtde-G" min="0" value="0"/></div>
+        <div><label>GG</label><input type="number" class="qtde qtde-GG" min="0" value="0"/></div>
       </div>
       <button class="whatsapp">Comprar via WhatsApp</button>
     </div>

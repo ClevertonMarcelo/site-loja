@@ -1,35 +1,29 @@
-
 const produtos = [
   {
     nome: "Camisa Preta",
-    cor: "Preta",
     foto: "camisa-preta.jpg"
   },
   {
     nome: "Camisa Azul Marinho",
-    cor: "Azul Marinho",
     foto: "camisa-azul.jpg"
   },
   {
     nome: "Camisa Branca",
-    cor: "Branca",
     foto: "camisa-branca.jpg"
   }
 ];
 
 function renderizarProdutos() {
   const container = document.getElementById("produtos");
-  container.innerHTML = "";
+  const template = document.getElementById("produto-template");
 
   produtos.forEach(produto => {
-    const template = document.getElementById("produto-template");
     const clone = template.content.cloneNode(true);
-    clone.querySelector(".foto").src = produto.foto;
     clone.querySelector(".nome").textContent = produto.nome;
-    clone.querySelector(".cor").textContent = "Cor: " + produto.cor;
+    clone.querySelector(".foto").src = produto.foto;
 
     const btn = clone.querySelector(".whatsapp");
-    btn.onclick = function () {
+    btn.onclick = () => {
       const qtdeP = parseInt(clone.querySelector(".qtde-P").value) || 0;
       const qtdeM = parseInt(clone.querySelector(".qtde-M").value) || 0;
       const qtdeG = parseInt(clone.querySelector(".qtde-G").value) || 0;
@@ -47,21 +41,18 @@ function renderizarProdutos() {
       else if (total === 3) preco = 150;
       else preco = 150 + (total - 3) * 50;
 
-      let detalhes = [];
-      if (qtdeP) detalhes.push(`${qtdeP}x P`);
-      if (qtdeM) detalhes.push(`${qtdeM}x M`);
-      if (qtdeG) detalhes.push(`${qtdeG}x G`);
-      if (qtdeGG) detalhes.push(`${qtdeGG}x GG`);
+      const resumo = [];
+      if (qtdeP) resumo.push(`${qtdeP}x P`);
+      if (qtdeM) resumo.push(`${qtdeM}x M`);
+      if (qtdeG) resumo.push(`${qtdeG}x G`);
+      if (qtdeGG) resumo.push(`${qtdeGG}x GG`);
 
-      const msg = `Olá! Gostaria de pedir ${total} camisa(s) ${produto.cor}: ${detalhes.join(', ')} - Total: R$${preco}`;
-      const url = `https://wa.me/5546991081743?text=${encodeURIComponent(msg)}`;
-      window.open(url, '_blank');
+      const msg = `Olá! Gostaria de comprar ${produto.nome} nas quantidades: ${resumo.join(', ')}. Total: R$${preco}`;
+      window.open(`https://wa.me/5546991081743?text=${encodeURIComponent(msg)}`, "_blank");
     };
 
     container.appendChild(clone);
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  renderizarProdutos();
-});
+document.addEventListener("DOMContentLoaded", renderizarProdutos);
