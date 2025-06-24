@@ -1,32 +1,19 @@
 
-function atualizarBanner(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('bannerImagem').src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
-function atualizarLogo(event) {
-  const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      document.getElementById('logo').src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-}
-
 const produtos = [
   {
-    nome: "Camisa Polo Masculina",
-    marca: "LYNCO",
-    cor: "Preto",
-    foto: "produto.jpg"
+    nome: "Camisa Preta",
+    cor: "Preta",
+    foto: "camisa-preta.jpg"
+  },
+  {
+    nome: "Camisa Azul Marinho",
+    cor: "Azul Marinho",
+    foto: "camisa-azul.jpg"
+  },
+  {
+    nome: "Camisa Branca",
+    cor: "Branca",
+    foto: "camisa-branca.jpg"
   }
 ];
 
@@ -39,7 +26,6 @@ function renderizarProdutos() {
     const clone = template.content.cloneNode(true);
     clone.querySelector(".foto").src = produto.foto;
     clone.querySelector(".nome").textContent = produto.nome;
-    clone.querySelector(".marca").textContent = "Marca: " + produto.marca;
     clone.querySelector(".cor").textContent = "Cor: " + produto.cor;
 
     const btn = clone.querySelector(".whatsapp");
@@ -51,7 +37,7 @@ function renderizarProdutos() {
       const total = qtdeP + qtdeM + qtdeG + qtdeGG;
 
       if (total === 0) {
-        alert("Selecione pelo menos uma camisa.");
+        alert("Selecione pelo menos uma unidade.");
         return;
       }
 
@@ -67,7 +53,7 @@ function renderizarProdutos() {
       if (qtdeG) detalhes.push(`${qtdeG}x G`);
       if (qtdeGG) detalhes.push(`${qtdeGG}x GG`);
 
-      const msg = `Olá! Gostaria de pedir ${total} camisa(s): ${detalhes.join(', ')} - Total: R$${preco}`;
+      const msg = `Olá! Gostaria de pedir ${total} camisa(s) ${produto.cor}: ${detalhes.join(', ')} - Total: R$${preco}`;
       const url = `https://wa.me/5546991081743?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     };
